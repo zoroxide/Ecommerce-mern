@@ -1,0 +1,26 @@
+/* src/pages/ProductsPage.css */
+
+.product-card {
+    width: 100%;
+    max-width: 200px; /* Limit the card width */
+    margin: auto;
+    border: 1px solid #ddd;
+  }
+  
+  .product-image {
+    height: 150px; /* Limit image height */
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sm {
+    font-size: 0.8rem;
+  }
+  
