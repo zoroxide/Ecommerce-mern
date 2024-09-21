@@ -6,12 +6,10 @@ from bson import ObjectId
 app = Flask(__name__)
 CORS(app)
 
-# Database setup
 client = MongoClient('mongodb://localhost:27017/')
 db = client.lyn
 products_collection = db.products
 
-# Fetch all products
 @app.route('/products', methods=['GET'])
 def get_products():
     products = list(products_collection.find())
@@ -19,7 +17,6 @@ def get_products():
         product['_id'] = str(product['_id'])
     return jsonify(products)
 
-# Add a new product
 @app.route('/products', methods=['POST'])
 def add_product():
     data = request.json
@@ -36,11 +33,9 @@ def add_product():
 @app.route('/products/<id>', methods=['GET'])
 def get_product(id):
     try:
-        # Fetch product from MongoDB using the ObjectId
         product = products_collection.find_one({"_id": ObjectId(id)})
         
         if product:
-            # Prepare the product data for JSON response
             product_data = {
                 "_id": str(product["_id"]),
                 "name": product["name"],
@@ -55,7 +50,6 @@ def get_product(id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Update a product by ID
 @app.route('/products/<id>', methods=['PUT'])
 def update_product(id):
     data = request.json

@@ -10,7 +10,7 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
-          <a className="navbar-brand fw-bold" href="#">Lyn</a>
+          <Link className="navbar-brand fw-bold" to='/'>Lyn</Link>
           <button
             className="navbar-toggler"
             type="button"
