@@ -63,5 +63,10 @@ def update_product(id):
     products_collection.update_one({"_id": ObjectId(id)}, {"$set": updated_product})
     return jsonify({"message": "Product updated successfully"}), 200
 
+@app.route('/products/<id>', methods=['DELETE'])
+def delete_product(id):
+    products_collection.delete_one({"_id": ObjectId(id)})
+    return jsonify({"message": "Product deleted successfully"}), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
