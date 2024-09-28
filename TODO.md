@@ -1,8 +1,5 @@
 ## BACKEND : 
- - make models
- - add edit quantity feature
- - inhance structure
+ - [x] add edit quantity feature
 
 ## FRONTEND:
- - add edit quantity feature
- - integrate properly with beckend
+ - [ x ] add edit quantity feature

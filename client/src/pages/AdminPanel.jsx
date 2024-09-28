@@ -10,6 +10,7 @@ const AdminPanel = () => {
     name: '',
     price: '',
     stock: true,
+    quantity: '1',
     description: '',
     imageURL: ''
   });
@@ -34,7 +35,7 @@ const AdminPanel = () => {
     axios.post('http://localhost:5000/products', newProduct)
       .then(() => {
         fetchProducts();
-        setNewProduct({ name: '', price: '', stock: true, description: '', imageURL: '' });
+        setNewProduct({ name: '', price: '', stock: true, quantity: '', description: '', imageURL: '' });
       })
       .catch((error) => {
         console.error('Error adding product:', error);
@@ -105,6 +106,10 @@ const AdminPanel = () => {
           <option value={false}>Out of Stock</option>
         </select>
       </div>
+      <div className="from-group" >
+        <label>Quantity</label>
+        <input type='number' className='from-control' name='quantity' value={newProduct.quantity} onChange={handleChange}/>
+      </div>
       <div className="form-group">
         <label>Description</label>
         <textarea className="form-control" name="description" value={newProduct.description} onChange={handleChange}></textarea>
@@ -123,6 +128,7 @@ const AdminPanel = () => {
             <th>Name</th>
             <th>Price</th>
             <th>Stock</th>
+            <th>quantity</th>
             <th>Description</th>
             <th>Image</th>
             <th>Actions</th>
@@ -134,6 +140,7 @@ const AdminPanel = () => {
               <td>{product.name}</td>
               <td>${product.price}</td>
               <td>{product.stock ? 'In Stock' : 'Out of Stock'}</td>
+              <td>{product.stock ? product.quantity : 0}</td>
               <td>{product.description}</td>
               <td><img src={product.imageURL} alt={product.name} style={{ width: '100px' }} /></td>
               <td>
@@ -163,6 +170,10 @@ const AdminPanel = () => {
               <option value={true}>In Stock</option>
               <option value={false}>Out of Stock</option>
             </select>
+          </div>
+          <div className="form-group">
+            <label>Quantity</label>
+            <input type="number" className="form-control" name="quantity" value={editingProduct.quantity} onChange={handleEditChange} />
           </div>
           <div className="form-group">
             <label>Description</label>

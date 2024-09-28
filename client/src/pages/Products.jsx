@@ -61,17 +61,17 @@ const Products = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.description}</p>
-                  <p className="card-text">${product.price}</p>
+                  {/* <p className="card-text">{product.description}</p> */}
+                  <p className="card-text">{product.price} EGP</p>
                   <p className="card-text">
                     {product.stock ? "In Stock" : "Out of Stock"}
                   </p>
-                  <button
+                  {/* <button
                     className="btn btn-primary"
                     onClick={() => handleProductClick(product._id)}
                   >
                     Read More ...
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

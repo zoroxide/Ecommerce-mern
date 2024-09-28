@@ -38,6 +38,7 @@ app.post('/products', async (req, res) => {
             name: req.body.name,
             price: req.body.price,
             stock: req.body.stock,
+            quantity: req.body.quantity,
             description: req.body.description,
             imageURL: req.body.imageURL
         });
@@ -69,6 +70,7 @@ app.put('/products/:id', async (req, res) => {
             name: req.body.name,
             price: req.body.price,
             stock: req.body.stock,
+            quantity: req.body.quantity,
             description: req.body.description,
             imageURL: req.body.imageURL
         };

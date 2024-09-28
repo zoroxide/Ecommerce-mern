@@ -35,7 +35,7 @@ const ProductDetailPage = () => {
         <div className="col-md-6">
           <h1>{product.name}</h1>
           <p>{product.description}</p>
-          <h3>${product.price}</h3>
+          <h3>{product.price} EGP</h3>
           <p>{product.stock ? 'In Stock' : 'Out of Stock'}</p>
           <button className="btn btn-primary">Add to Cart</button>
         </div>
